@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 600px;
+}
+
+.container div {
+  padding: 20px;
+}
+
+#logo {
+  width: 300px;
+}
+
+/*# sourceMappingURL=index.css.map */

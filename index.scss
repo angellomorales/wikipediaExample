@@ -1,0 +1,20 @@
+%alignment {
+    text-align: center;
+}
+
+.form-control {
+    border-radius: 20px;
+    width: 600px;
+}
+
+.container {
+    @extend %alignment;
+
+    div {
+        padding: 20px;
+    }
+}
+
+#logo{
+    width: 300px;
+}
