@@ -1,20 +1,28 @@
-/*%alignment {
+%alignment {
     text-align: center;
 }
 
-.form-control {
+/* .form-horizontal {
     border-radius: 20px;
     width: 600px;
+} */
+
+//@extend %alignment;
+div {
+    padding: 20px;
 }
 
-.container {
-    @extend %alignment;
-
-    div {
-        padding: 20px;
-    }
-}
-
-#logo{
+#logo {
     width: 300px;
-}*/
+}
+.header{
+    text-align: right;
+    font-family: sans-serif;
+    font-size: small;
+    a{
+        color: black;
+    }   
+}
+.space-style{
+    margin-left: 20px;
+}
