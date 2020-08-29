@@ -7,14 +7,15 @@
 }
 
 .form-control {
-  border-radius: 40px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   height: 40px;
+  border-left-style: none;
 }
 
-div {
-  padding: 10px;
-}
-
+/* div { verificar error de posicion
+    margin-top: 10px;
+} */
 .logo img {
   width: 300px;
 }
@@ -38,6 +39,12 @@ div {
   .container {
     width: 300px;
   }
+}
+.input-group-text {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right-style: none;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=index.css.map */

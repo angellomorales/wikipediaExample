@@ -1,4 +1,6 @@
-%alignment {
+$border-input:20px;
+
+ %alignment {
     text-align: center;
 }
 
@@ -7,17 +9,19 @@
 }
 
  .form-control {
-    border-radius: 40px;
+    border-top-right-radius: $border-input;
+    border-bottom-right-radius: $border-input;
     height: 40px;
+    border-left-style: none;
 }
 
 .form-horizontal {
     @extend %alignment;
 }
 
-div {
-    padding: 10px;
-}
+/* div { verificar error de posicion
+    margin-top: 10px;
+} */
 
 .logo {
     @extend %alignment;
@@ -36,7 +40,7 @@ div {
     a {
         color: black;
     }
-}
+} 
 
 .link-style {
     @extend %space;
@@ -51,8 +55,15 @@ div {
         width: 600px;
     }
 }
+
 @media(max-width: 599px){
     .container{
         width: 300px;
     }
+}
+.input-group-text{
+    border-top-left-radius: $border-input;
+    border-bottom-left-radius: $border-input;
+    border-right-style: none;
+    background-color: transparent;
 }
