@@ -7,7 +7,8 @@
 }
 
  .form-control {
-    border-radius: 20px;
+    border-radius: 40px;
+    height: 40px;
 }
 
 .form-horizontal {
@@ -43,4 +44,15 @@ div {
 
 .input-style {
     @extend %space;
+}
+
+@media(min-width: 600px){
+    .container{
+        width: 600px;
+    }
+}
+@media(max-width: 599px){
+    .container{
+        width: 300px;
+    }
 }
