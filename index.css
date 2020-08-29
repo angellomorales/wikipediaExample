@@ -1,12 +1,20 @@
-/* .form-horizontal {
-    border-radius: 20px;
-    width: 600px;
-} */
-div {
-  padding: 20px;
+.logo, .form-horizontal {
+  text-align: center;
 }
 
-#logo {
+.input-style, .link-style {
+  margin-left: 10px;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+div {
+  padding: 10px;
+}
+
+.logo img {
   width: 300px;
 }
 
@@ -14,13 +22,10 @@ div {
   text-align: right;
   font-family: sans-serif;
   font-size: small;
+  padding: 20px;
 }
 .header a {
   color: black;
-}
-
-.space-style {
-  margin-left: 20px;
 }
 
 /*# sourceMappingURL=index.css.map */
