@@ -1,6 +1,6 @@
 $border-input:20px;
 
- %alignment {
+%alignment {
     text-align: center;
 }
 
@@ -8,7 +8,11 @@ $border-input:20px;
     margin-left: 10px;
 }
 
- .form-control {
+%marginTop {
+    margin-top: 10px;
+}
+
+.form-control {
     border-top-right-radius: $border-input;
     border-bottom-right-radius: $border-input;
     height: 40px;
@@ -17,6 +21,7 @@ $border-input:20px;
 
 .form-horizontal {
     @extend %alignment;
+    @extend %marginTop;
 }
 
 /* div { verificar error de posicion
@@ -25,6 +30,7 @@ $border-input:20px;
 
 .logo {
     @extend %alignment;
+    @extend %marginTop;
 
     img {
         width: 300px;
@@ -32,6 +38,7 @@ $border-input:20px;
 }
 
 .header {
+    @extend %marginTop;
     text-align: right;
     font-family: sans-serif;
     font-size: small;
@@ -40,30 +47,50 @@ $border-input:20px;
     a {
         color: black;
     }
-} 
+}
 
 .link-style {
     @extend %space;
 }
 
-.input-style {
+.btn-light {
     @extend %space;
+    font-family: sans-serif;
+    font-size: 15px;
+    color: rgb(131, 129, 129);
 }
 
-@media(min-width: 600px){
-    .container{
+@media(min-width: 600px) {
+    .container {
         width: 600px;
     }
 }
 
-@media(max-width: 599px){
-    .container{
+@media(max-width: 599px) {
+    .container {
         width: 300px;
     }
 }
-.input-group-text{
+
+.input-group-text {
     border-top-left-radius: $border-input;
     border-bottom-left-radius: $border-input;
     border-right-style: none;
     background-color: transparent;
+}
+
+.footer {
+    @extend %alignment;
+    padding-top: 20px;
+    font-family: sans-serif;
+    font-size: small;
+
+    span {
+        color: blue;
+
+        &:hover {
+            text-decoration-line: underline;
+            cursor: pointer;
+        }
+    }
 }
