@@ -91,3 +91,8 @@ $border-input:20px;
         }
     }
 }
+.form-advance{
+    .row{
+        @extend %marginTop;
+    }
+}
