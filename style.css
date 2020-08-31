@@ -6,7 +6,7 @@
   margin-left: 10px;
 }
 
-.form-advance .row, .header, .logo, .form-horizontal-index {
+.form-advance .head, .form-advance .row, .header, .logo, .form-horizontal-index {
   margin-top: 10px;
 }
 
@@ -19,6 +19,10 @@
 
 .logo img {
   width: 300px;
+}
+
+.logo2 img {
+  width: 50px;
 }
 
 .header {
@@ -66,6 +70,58 @@
 .footer span:hover {
   text-decoration-line: underline;
   cursor: pointer;
+}
+
+.form-advance .spanxs {
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-small;
+}
+p {
+  font-size: small;
+}
+p span {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.p_sub {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: #6d6d6d;
+}
+
+.p_head {
+  font-size: 18px;
+}
+
+.p_head2 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6d6d6d;
+}
+
+.btn-align-left {
+  text-align: right;
+}
+.btn-align-left .btn-primary {
+  background-color: #3297be;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.background-header {
+  background-color: #ececec;
+}
+
+.header-title {
+  padding: 20px;
+  padding-left: 40px;
+  color: #e90606;
+  font-size: x-large;
+  font-weight: 400;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #ececec;
 }
 
 /*# sourceMappingURL=style.css.map */
