@@ -4,9 +4,11 @@ from django.http import HttpResponseRedirect
 
 from . import util
 
+
 class NewPageForm(forms.Form):
-    title = forms.CharField(label="title",required=True)
-    textcontent = forms.CharField(widget=forms.Textarea , label="content",required=True)
+    title = forms.CharField(label="title", required=True)
+    content = forms.CharField(widget=forms.Textarea,
+                              label="content", required=True)
 
 
 def index(request):
@@ -66,6 +68,42 @@ def search(request):
 
 
 def new(request):
+    if request.method == "POST":
+        form = NewPageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            if save(title, content):
+                return render(request, "encyclopedia/entry.html", {
+                    "title": title,
+                    "content": content
+                })
+            else:
+                return render(request, "encyclopedia/error.html", {
+                    "title": "error",
+                    "content": "content already exist"
+                })
+        else:
+            return render(request, "encyclopedia/new.htm", {
+                "form": form
+            })
     return render(request, "encyclopedia/new.html", {
+        "form": NewPageForm()
+    })
+
+
+def save(title, content):
+    exist = util.get_entry(title)
+    if exist == None:
+        myfile = open(f"entries/{title.capitalize()}.md", "w")
+        myfile.write(f'{content}')
+        myfile.close
+        isSaved = True
+    else:
+        isSaved = False
+    return isSaved
+
+def edit(request):
+     return render(request, "encyclopedia/new.html", {
         "form": NewPageForm()
     })
