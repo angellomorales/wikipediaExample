@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from django import forms
 from django.http import HttpResponseRedirect
 
 from . import util
+
+class NewPageForm(forms.Form):
+    title = forms.CharField(label="title",required=True)
+    textcontent = forms.CharField(widget=forms.Textarea , label="content",required=True)
 
 
 def index(request):
@@ -58,3 +63,9 @@ def search(request):
                 "title": result.capitalize(),
                 "content": content
             })
+
+
+def new(request):
+    return render(request, "encyclopedia/new.html", {
+        "form": NewPageForm()
+    })

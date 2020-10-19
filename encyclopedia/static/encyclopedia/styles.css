@@ -13,7 +13,7 @@ h1 {
 }
 
 textarea {
-    height: 90vh;
+    height: 60vh;
     width: 80%;
 }
 
@@ -35,4 +35,9 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.save{
+    text-align: center;
+    color: blue;
 }
