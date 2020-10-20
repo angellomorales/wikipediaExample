@@ -73,37 +73,47 @@ def new(request):
         if form.is_valid():
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
-            if save(title, content):
-                return render(request, "encyclopedia/entry.html", {
+            if ('qediting' in request.POST):
+                # edit page
+                title = request.POST["qediting"]
+                if util.checkEdit(title, content):
+                    return render(request, "encyclopedia/entry.html", {
+                        "title": title,
+                        "content": content
+                    })
+                else:
+                    return render(request, "encyclopedia/error.html", {
+                        "title": "error",
+                        "content": "Not possible to edit"
+                    })
+            else:
+                # new page
+                if util.checkSave(title, content):
+                    return render(request, "encyclopedia/entry.html", {
+                        "title": title,
+                        "content": content
+                    })
+                else:
+                    return render(request, "encyclopedia/error.html", {
+                        "title": "error",
+                        "content": "content already exist"
+                    })
+        else:
+            if ('qedit' in request.POST):
+                title = request.POST["qedit"]
+                content=util.get_entry(title)
+                editform=NewPageForm(initial={'title':title,'content':content})
+                return render(request, "encyclopedia/new.html", {
+                    "isediting": "True",
                     "title": title,
-                    "content": content
+                    "form": editform
                 })
             else:
-                return render(request, "encyclopedia/error.html", {
-                    "title": "error",
-                    "content": "content already exist"
+                return render(request, "encyclopedia/new.html", {
+                    "isediting": "False",
+                    "form": form
                 })
-        else:
-            return render(request, "encyclopedia/new.htm", {
-                "form": form
-            })
+
     return render(request, "encyclopedia/new.html", {
-        "form": NewPageForm()
-    })
-
-
-def save(title, content):
-    exist = util.get_entry(title)
-    if exist == None:
-        myfile = open(f"entries/{title.capitalize()}.md", "w")
-        myfile.write(f'{content}')
-        myfile.close
-        isSaved = True
-    else:
-        isSaved = False
-    return isSaved
-
-def edit(request):
-     return render(request, "encyclopedia/new.html", {
         "form": NewPageForm()
     })

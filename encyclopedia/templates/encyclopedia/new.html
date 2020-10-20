@@ -5,15 +5,23 @@ New page
 {% endblock %}
 
 {% block body %}
-<h1>Create new Page</h1>
+<h1>{% if isediting %}
+    Edit
+    {% else %}
+    Create New
+    {% endif %}
+    Page</h1>
 <form action="{% url 'encyclopedia:new' %}" method="POST">
     {% csrf_token %}
     <table class="table">
-        {{ form }} 
+        {{ form }}
     </table>
     <div class="save">
-        <input class="save" type="submit" value="Save"/>
+        <input type="submit" value="Save" />
+        {% if isediting %}
+        <input type="hidden" name="qediting" id="qediting" value="{{title}}">
+        {% endif %}
     </div>
-    
+
 </form>
 {% endblock %}

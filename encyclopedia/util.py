@@ -35,3 +35,27 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+
+def checkSave(title, content):
+    exist = get_entry(title)
+    if exist == None:
+        # myfile = open(f"entries/{title.capitalize()}.md", "w")
+        # myfile.write(f'{content}')
+        # myfile.close
+        save_entry(title.capitalize(),content)
+        isSaved = True
+    else:
+        isSaved = False
+    return isSaved
+
+
+def checkEdit(title, content):
+    exist = get_entry(title)
+    if exist == None:
+        isEdited = False
+    else:
+        save_entry(title,content)
+        isEdited = True
+    return isEdited
+
