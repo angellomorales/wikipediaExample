@@ -75,11 +75,11 @@ def new(request):
         if form.is_valid():
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
-            content=util.markdownToHtml(content)
             if ('qediting' in request.POST):
                 # edit page
                 title = request.POST["qediting"]
                 if util.checkEdit(title, content):
+                    content=util.markdownToHtml(content)
                     return render(request, "encyclopedia/entry.html", {
                         "title": title,
                         "content": content
@@ -92,6 +92,7 @@ def new(request):
             else:
                 # new page
                 if util.checkSave(title, content):
+                    content=util.markdownToHtml(content)
                     return render(request, "encyclopedia/entry.html", {
                         "title": title,
                         "content": content
