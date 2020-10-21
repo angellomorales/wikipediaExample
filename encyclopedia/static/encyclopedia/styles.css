@@ -1,6 +1,8 @@
 body {
     margin: 0;
     background-color: white;
+    overflow-y: scroll;
+
 }
 
 code {

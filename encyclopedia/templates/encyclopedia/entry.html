@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block body %}
-<form action="{% url 'encyclopedia:new' %}" method="POST">
+<form action="{% url 'encyclopedia:new' %}" method="POST" name="editForm">
     {% csrf_token %}
-        <input  type="hidden" name="qedit" id="qedit" value={{title}}>    
-        <input  type="submit" value="Edit"/>    
+        <input  type="hidden" name="qedit" id="qedit" value={{title}}>     
+        <button class="btn btn-link" type="submit">Edit</button>
 </form>
     {{content|safe}}
 {% endblock %}
