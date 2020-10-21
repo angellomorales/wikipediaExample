@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
+from django.urls import reverse
+import random
 
 from . import util
 
@@ -101,8 +103,9 @@ def new(request):
         else:
             if ('qedit' in request.POST):
                 title = request.POST["qedit"]
-                content=util.get_entry(title)
-                editform=NewPageForm(initial={'title':title,'content':content})
+                content = util.get_entry(title)
+                editform = NewPageForm(
+                    initial={'title': title, 'content': content})
                 return render(request, "encyclopedia/new.html", {
                     "isediting": "True",
                     "title": title,
@@ -117,3 +120,11 @@ def new(request):
     return render(request, "encyclopedia/new.html", {
         "form": NewPageForm()
     })
+
+
+def randomPage(request):
+    entries = util.list_entries()
+    randomIndex = random.choice(entries)
+    # url = reverse('encyclopedia:entry', kwargs={'title': randomIndex})
+    # return HttpResponseRedirect(url)
+    return HttpResponseRedirect(reverse('encyclopedia:entry', args=(randomIndex,)))
