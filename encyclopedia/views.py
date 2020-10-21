@@ -20,7 +20,7 @@ def index(request):
 
 
 def entry(request, title):
-    content = util.get_entry(title)
+    content = util.get_entry(title,True)
     if content == None:
         content = "Page Not Found"
         title = content
@@ -41,7 +41,7 @@ def search(request):
 
     if request.method == "GET":
         result = request.GET["q"]
-        content = util.get_entry(result)
+        content = util.get_entry(result,True)
         if content == None:
             content = "Page Not Found"
             for entry in entries:
@@ -103,7 +103,7 @@ def new(request):
         else:
             if ('qedit' in request.POST):
                 title = request.POST["qedit"]
-                content = util.get_entry(title)
+                content = util.get_entry(title,False)
                 editform = NewPageForm(
                     initial={'title': title, 'content': content})
                 return render(request, "encyclopedia/new.html", {
