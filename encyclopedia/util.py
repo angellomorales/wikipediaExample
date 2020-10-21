@@ -38,6 +38,9 @@ def get_entry(title):
 
 
 def checkSave(title, content):
+    """
+    check for create entry and save if it doesn't extis and return true.
+    """
     exist = get_entry(title)
     if exist == None:
         # myfile = open(f"entries/{title.capitalize()}.md", "w")
@@ -51,6 +54,9 @@ def checkSave(title, content):
 
 
 def checkEdit(title, content):
+    """
+    check for edit entry and save if it exist and return true.
+    """
     exist = get_entry(title)
     if exist == None:
         isEdited = False
